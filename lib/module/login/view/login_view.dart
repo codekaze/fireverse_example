@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:firedart_example/module/login/widget/blur_login_view.dart';
+import 'package:firedart_example/module/main_navigation/view/main_navigation_view.dart';
 import 'package:fireverse/fireverse.dart';
 import 'package:flutter/material.dart';
 import '../controller/login_controller.dart';
@@ -31,24 +32,8 @@ class LoginView extends StatelessWidget {
             }
 
             if (Fire.currentUser != null) {
-              var moduleName = "product";
-
-              await Fire.add(collectionName: moduleName, value: {
-                "product_name": "Super Cat",
-                "price": 24,
-                "created_at": Fire.timestamp(),
-              });
-              log("success?");
-
-              log("get $moduleName?");
-              var res = await Fire.get(
-                collectionName: moduleName,
-              );
-              print(res);
-              print(res.length);
-
-              // Get.deleteAll();
-              // Get.offAll(MainNavigationView());
+              Get.deleteAll();
+              Get.offAll(MainNavigationView());
             }
           },
         );
